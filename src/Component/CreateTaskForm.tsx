@@ -5,13 +5,9 @@ interface IProps {
   addTask: (value: string) => void;
 }
 
-interface IState {
-  value: string;
-}
-
 export default (props: IProps) => {
   const { addTask } = props;
-  const [value, setValue] = useState<IState>("");
+  const [value, setValue] = useState<string>("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();

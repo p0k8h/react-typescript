@@ -21,10 +21,18 @@ const Task = (props: IProps) => {
   return (
     <StyledTask done={done}>
       {name}
-      <button style={{ background: "red" }} onClick={() => removeTask(index)}>
-        x
-      </button>
-      <button onClick={() => completeTask(index)}>Complete</button>
+
+      {!done && (
+        <>
+          <button
+            style={{ background: "red" }}
+            onClick={() => removeTask(index)}
+          >
+            x
+          </button>
+          <button onClick={() => completeTask(index)}>Complete</button>
+        </>
+      )}
     </StyledTask>
   );
 };

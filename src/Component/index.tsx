@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ITodoItems } from "../interfaces";
-import CreateTask from "./CreateTask";
-import { Container, CreateTask as StyledCreateTask, Header } from "./styled";
+import CreateTaskForm from "./CreateTaskForm";
+import { Container, CreateTask, Header } from "./styled";
 import Task from "./Task";
 
 function Todo() {
@@ -59,9 +59,9 @@ function Todo() {
             />
           ))}
         </div>
-        <StyledCreateTask>
-          <CreateTask addTask={addTask} />
-        </StyledCreateTask>
+        <CreateTask>
+          <CreateTaskForm addTask={addTask} />
+        </CreateTask>
       </Container>
     </>
   );
