@@ -1,5 +1,5 @@
 import React from "react";
-import { Task as StyledTask } from "./styled";
+import { Button, Task as StyledTask } from "./styled";
 
 interface IProps {
   task: {
@@ -11,12 +11,12 @@ interface IProps {
   removeTask: (index: number) => void;
 }
 
-const Task = (props: IProps) => {
+const Task: React.FC<IProps> = (props) => {
   const {
     task: { done, name },
     index,
     completeTask,
-    removeTask
+    removeTask,
   } = props;
   return (
     <StyledTask done={done}>
@@ -24,13 +24,13 @@ const Task = (props: IProps) => {
 
       {!done && (
         <>
-          <button
-            style={{ background: "red" }}
+          <Button
+            color="red"
             onClick={() => removeTask(index)}
           >
             x
-          </button>
-          <button onClick={() => completeTask(index)}>Complete</button>
+          </Button>
+          <Button onClick={() => completeTask(index)}>Complete</Button>
         </>
       )}
     </StyledTask>

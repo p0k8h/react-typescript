@@ -49,3 +49,8 @@ export const CreateTask = styled.div`
     padding: 0.7em;
   }
 `;
+
+export const Button = styled.button`
+  background: ${(props: { color?: string }) => props.color
+  } !important
+`;

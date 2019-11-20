@@ -4,20 +4,17 @@ import CreateTaskForm from "./CreateTaskForm";
 import { Container, CreateTask, Header } from "./styled";
 import Task from "./Task";
 
-function Todo() {
+const Todo: React.FC = () => {
   const [tasks, setTasks] = useState<ITodoItems>([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/todo")
-      .then(resp => resp.json())
-      .then(resp => {
-        const t = resp.recordset;
-
-        const final = [...tasks, ...t];
-
-        setTasks(final);
+      .then((resp) => resp.json())
+      .then((resp) => {
+        const savedTask = [...tasks, ...resp.recordset];
+        setTasks(savedTask);
       })
-      .catch(err => {
+      .catch((err: Error) => {
         console.log("error fetching api", err);
       });
   }, []);
@@ -47,18 +44,16 @@ function Todo() {
   return (
     <>
       <Container>
-        <Header>TODO - ITEMS</Header>
-        <div>
-          {tasks.map((task, index) => (
-            <Task
-              task={task}
-              index={index}
-              key={index}
-              removeTask={removeTask}
-              completeTask={completeTask}
-            />
-          ))}
-        </div>
+        <Header>TODO - List</Header>
+        {tasks.map((task, index) => (
+          <Task
+            task={task}
+            index={index}
+            key={index}
+            removeTask={removeTask}
+            completeTask={completeTask}
+          />
+        ))}
         <CreateTask>
           <CreateTaskForm addTask={addTask} />
         </CreateTask>

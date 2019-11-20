@@ -9,7 +9,7 @@ export default (props: IProps) => {
   const { addTask } = props;
   const [value, setValue] = useState<string>("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!value) {
       return;
@@ -26,7 +26,7 @@ export default (props: IProps) => {
         className="input"
         value={value}
         placeholder="Add a new task"
-        onChange={(e: any) => setValue(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
       />
     </Form>
   );
