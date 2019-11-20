@@ -2,15 +2,22 @@ import React from "react";
 import { Task as StyledTask } from "./styled";
 
 interface IProps {
-  done: boolean;
-  name: string;
+  task: {
+    done: boolean;
+    name: string;
+  };
   index: number;
   completeTask: (index: number) => void;
   removeTask: (index: number) => void;
 }
 
 const Task = (props: IProps) => {
-  const { done, name, index, completeTask, removeTask } = props;
+  const {
+    task: { done, name },
+    index,
+    completeTask,
+    removeTask
+  } = props;
   return (
     <StyledTask done={done}>
       {name}
