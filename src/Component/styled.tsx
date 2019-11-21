@@ -51,6 +51,9 @@ export const CreateTask = styled.div`
 `;
 
 export const Button = styled.button`
-  background: ${(props: { color?: string }) => props.color
-  } !important
+  background: ${(props: { color?: string }) => props.color} !important;
+`;
+
+export const MessageBar = styled.div`
+  background: ${(props: { color: string }) => props.color};
 `;
